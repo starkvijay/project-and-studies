@@ -1,0 +1,38 @@
+create database demo1;
+use demo1;
+
+-- create table 1 as student_info
+create table student_info(student_id int not null primary key, student_name varchar(20), City Varchar(20), Age int not null, Roll int not null,	
+Community Varchar(20),Course_ID int not null);
+
+insert into student_info(student_id, student_name, city, age, Roll, Community,Course_ID) values
+(1,	"Vasanth",	"Erode",	21,	13001,	"BC",	1),
+(2,	"Guru",	"Tiruppur",	20,	13002,	"MBC",	1),
+(3,	"Gokul", "Tiruchirapalli",18,	13003,	"SC",	1),
+(4,	"Mani",	"Kumarapalayam",	24,	13004,	"BC",	1),
+(5,	"Moorthy", "Salem",	18,	13005,	"MBC",   2),
+(6,	"Amutha", "Chennai",	17,	13006,	"SC",	2),
+(7,	"Jaga",	"Madurai",	24,	13007,	"BC",	2),
+(8,	"Pavithra",	"Erode",	23,	13008,	"MBC",	2);
+select * from student_info;
+
+-- create table 2 as Mark_info
+create table mark_info(student_id int not null primary key, Finance
+Int not null, Marks_ID int not null, cost int not null, corporate int not null);
+
+insert into mark_info(Student_ID,Marks_ID,	Finance, Cost, Corporate
+) values
+(1,14001,   75,	76,	65),
+(2,14002,	92,	90,	19),
+(3,14003,	38,	37,	46),
+(4,14004,	39,	90,	58),
+(5,14005,	34,	89,	20),
+(6,14006,	44,	38,	60);
+select * from student_info;
+select*from mark_info;
+
+select student_info.student_id, student_info.student_name, student_info.city, student_info.age, student_info.roll, mark_info.marks_id, mark_info.finance, mark_info.cost
+from student_info
+left join mark_info
+on student_info.student_id=mark_info.student_id
+order by student_id ;
